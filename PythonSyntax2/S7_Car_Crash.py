@@ -19,7 +19,7 @@ font = pygame.font.Font(None,40)
 class Player(pygame.sprite.Sprite):
     def __init__(self):
         super().__init__()
-        self.image = pygame.image.load(r"C:\Users\OMOLP247\OneDrive\Desktop\dhruv\PythonSyntax2\F1_CAR.png").convert_alpha()
+        self.image = pygame.image.load(r"C:\Users\OMOLP247\OneDrive\Desktop\dhruv\Python\PythonSyntax2\F1_CAR.png").convert_alpha()
         self.image = pygame.transform.scale(self.image,(60,120))
         self.rect = self.image.get_rect(midbottom=(WIDTH//2, HEIGHT-10))
         self.mask = pygame.mask.from_surface(self.image)
@@ -33,7 +33,7 @@ class Player(pygame.sprite.Sprite):
 class Enemy(pygame.sprite.Sprite):
     def __init__(self):
         super().__init__()
-        self.image = pygame.image.load(r"C:\Users\OMOLP247\OneDrive\Desktop\dhruv\PythonSyntax2\F1_CAR.png").convert_alpha()
+        self.image = pygame.image.load(r"C:\Users\OMOLP247\OneDrive\Desktop\dhruv\Python\PythonSyntax2\F1_CAR.png").convert_alpha()
         self.image = pygame.transform.scale(self.image,(60,120))
         self.image = pygame.transform.rotate(self.image,180)
         self.rect = self.image.get_rect(x=random.randint(0, WIDTH-90), y=random.randint(-300,-100))

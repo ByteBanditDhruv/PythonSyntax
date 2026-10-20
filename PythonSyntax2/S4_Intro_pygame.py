@@ -3,8 +3,8 @@
 # # # Start Pygame
 # pygame.init()
 
-# # # Create a game window
-# screen = pygame.display.set_mode((600, 400))
+# # Create a game window
+# screen = pygame.display.set_mode((600, 400)) 
 
 # # # Give the window a title
 # pygame.display.set_caption("My First Pygame Window")
