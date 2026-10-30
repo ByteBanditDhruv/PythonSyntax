@@ -10,53 +10,40 @@ app = QApplication(sys.argv)
 
 window = QWidget()
 window.setWindowTitle("Avengers Hero Selector")
-window.setGeometry(650, 300, 600, 450)
+window.setGeometry(500, 300, 600, 450)
 
+# Title
 title = QLabel("Avengers Hero Selector", window)
-title.setFont(QFont("Arial", 24, QFont.Bold))
-title.setAlignment(Qt.AlignCenter)
-title.setGeometry(50, 30, 500, 50)
+title.setGeometry(100, 30, 400, 50)
 
-subtitle = QLabel("Choose your favorite hero!", window)
-subtitle.setFont(QFont("Arial", 14))
-subtitle.setAlignment(Qt.AlignCenter)
-subtitle.setGeometry(50, 85, 500, 30)
+# Checkbox
+check = QCheckBox("I am an Avengers Fan!", window)
+check.setGeometry(180, 100, 250, 40)
 
-checkbox = QCheckBox("I am an Avengers Fan!", window)
-checkbox.setGeometry(180, 135, 250, 40)
-
-label = QLabel("Choose your favorite Avenger:", window)
-label.setGeometry(170, 185, 300, 30)
+# Dropdown
+label = QLabel("Choose your favorite hero:", window)
+label.setGeometry(170, 150, 300, 30)
 
 combo = QComboBox(window)
-combo.addItems([
-    "Iron Man",
-    "Captain America",
-    "Thor",
-    "Hulk",
-    "Black Widow",
-    "Spider-Man"
-])
-combo.setGeometry(150, 220, 300, 40)
+combo.addItems(["Iron Man", "Thor", "Hulk", "Captain America"])
+combo.setGeometry(150, 190, 300, 40)
 
+# Button
 button = QPushButton("Assemble!", window)
-button.setGeometry(200, 285, 200, 50)
+button.setGeometry(200, 260, 200, 50)
 
+# Result
 result = QLabel("", window)
-result.setAlignment(Qt.AlignCenter)
-result.setGeometry(50, 355, 500, 40)
+result.setGeometry(50, 330, 500, 40)
 
+# Function
 def assemble():
-    hero = combo.currentText()
-
-    if checkbox.isChecked():
-        result.setText(hero + " is ready to fight!")
-
+    if check.isChecked():
+        result.setText(combo.currentText() + " is ready to fight!")
     else:
-        result.setText("Become an Avengers Fan first!") 
+        result.setText("Become an Avengers Fan first!")
 
 button.clicked.connect(assemble)
 
 window.show()
-
 sys.exit(app.exec_())

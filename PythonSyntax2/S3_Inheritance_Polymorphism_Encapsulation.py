@@ -1,4 +1,4 @@
-# # INHERITANCE
+# INHERITANCE
 # class Employee:
 #     def __init__(self, name, salary):
 #         self.name = name
@@ -17,7 +17,6 @@
 #     def show_language(self):
 #         print("Programming Language:", self.language)
 
-
 # dev = Developer("Dhruv", 60000, "Python")
 
 # dev.show_details()
@@ -28,16 +27,13 @@
 #     def work(self):
 #         print("Employee is working.")
 
-
 # class Developer(Employee):
 #     def work(self):
 #         print("Developer is writing code.")
 
-
 # class Manager(Employee):
 #     def work(self):
 #         print("Manager is managing the team.")
-
 
 # emp = Employee()
 # dev = Developer()
@@ -47,43 +43,43 @@
 # dev.work()
 # man.work()
 
-# import pygame
+import pygame
 
-# pygame.init()
-# screen = pygame.display.set_mode((600, 400))
+pygame.init()
+screen = pygame.display.set_mode((600, 400))
 
-# class GameObject:
-#     def draw(self):
-#         pass
+class GameObject:
+    def draw(self):
+        pass
 
-# class Player(GameObject):
-#     def draw(self):
-#         pygame.draw.circle(screen, "blue", (100, 200), 30)
+class Player(GameObject):
+    def draw(self):
+        pygame.draw.circle(screen, "blue", (100, 200), 30)
 
-# class Enemy(GameObject):
-#     def draw(self):
-#         pygame.draw.rect(screen, "red", (250, 170, 60, 60))
+class Enemy(GameObject):
+    def draw(self):
+        pygame.draw.rect(screen, "red", (250, 170, 60, 60))
 
-# class Coin(GameObject):
-#     def draw(self):
-#         pygame.draw.circle(screen, "yellow", (450, 200), 20)
+class Coin(GameObject):
+    def draw(self):
+        pygame.draw.circle(screen, "yellow", (450, 200), 20)
 
-# objects = [Player(), Enemy(), Coin()]
-# running = True
+objects = [Player(), Enemy(), Coin()]
+running = True
 
-# while running:
-#     for event in pygame.event.get():
-#         if event.type == pygame.QUIT:
-#             running = False
+while running:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            running = False
 
-#     screen.fill("white")
+    screen.fill("white")
 
-#     for obj in objects:
-#         obj.draw() # Same method, different behavior
+    for obj in objects:
+        obj.draw() # Same method, different behavior
 
-#     pygame.display.update()
+    pygame.display.update()
 
-# pygame.quit()
+pygame.quit()
 
 
 # # ENCAPSULATION
@@ -151,47 +147,47 @@
 #     emp.work()          # Polymorphism
 #     emp.show_salary()   # Encapsulation
 
-import pygame
+# import pygame
 
-pygame.init()
+# pygame.init()
 
-screen = pygame.display.set_mode((500, 400))
-clock = pygame.time.Clock()
+# screen = pygame.display.set_mode((500, 400))
+# clock = pygame.time.Clock()
 
-class Ball:
-    def __init__(self, x):
-        self.x = x
+# class Ball:
+#     def __init__(self, x):
+#         self.x = x
 
-    def move(self):
-        pass
+#     def move(self):
+#         pass
 
-    def draw(self):
-        pygame.draw.circle(screen, "white", (self.x, 200), 20)
+#     def draw(self):
+#         pygame.draw.circle(screen, "white", (self.x, 200), 20)
 
-class FastBall(Ball):
-    def move(self):
-        self.x += 5
+# class FastBall(Ball):
+#     def move(self):
+#         self.x += 5
 
-class SlowBall(Ball):
-    def move(self):
-        self.x += 2
+# class SlowBall(Ball):
+#     def move(self):
+#         self.x += 2
 
-balls = [FastBall(50), SlowBall(50)]
+# balls = [FastBall(50), SlowBall(50)]
 
-running = True
+# running = True
 
-while running:
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            running = False
+# while running:
+#     for event in pygame.event.get():
+#         if event.type == pygame.QUIT:
+#             running = False
 
-    screen.fill("black")
+#     screen.fill("black")
 
-    for ball in balls:
-        ball.move() # Polymorphism
-        ball.draw()
+#     for ball in balls:
+#         ball.move() # Polymorphism
+#         ball.draw()
 
-    pygame.display.update()
-    clock.tick(60)
+#     pygame.display.update()
+#     clock.tick(60)
 
-pygame.quit()
+# pygame.quit()

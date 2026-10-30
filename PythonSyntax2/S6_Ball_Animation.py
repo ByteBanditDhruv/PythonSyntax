@@ -1,4 +1,4 @@
-# ## Single Ball Animation
+## Single Ball Animation
 
 # import pygame
 # import time
@@ -21,7 +21,7 @@
 # pygame.quit()
 
 
-## Multiple Balls
+# ## Multiple Balls
 import pygame
 from random import randint
 
@@ -36,7 +36,6 @@ screen = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("Multiple Balls Colliding")
 
 clock = pygame.time.Clock()
-
 
 # Ball Class
 class Ball:

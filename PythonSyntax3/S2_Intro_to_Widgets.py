@@ -1,12 +1,8 @@
-from PyQt5.QtWidgets import (
-    QApplication, QWidget, QLabel, QPushButton,
-    QLineEdit, QCheckBox, QRadioButton
-)
-from PyQt5.QtGui import QPixmap, QFont
 import sys
+from PyQt5.QtWidgets import *
+from PyQt5.QtGui import QPixmap, QFont
 
-
-class AvengersPortal(QWidget):
+class Avengers(QWidget):
 
     def __init__(self):
         super().__init__()
@@ -14,116 +10,65 @@ class AvengersPortal(QWidget):
         self.setWindowTitle("Avengers Portal")
         self.resize(1300, 900)
 
-        self.setStyleSheet("""
-            QWidget {
-                background-color: #101010;
-                color: white;
-            }
+        # self.setStyleSheet("""
+        #     QWidget { background: #101010; color: white; }
+        #     QLabel { color: #FFD700; }
+        #     QLineEdit { background: white; color: black; }
+        #     QPushButton {
+        #         background: #E62429;
+        #         color: white;
+        #         padding: 10px;
+        #         border-radius: 5px;
+        #     }
+        # """)
 
-            QLabel {
-                color: #FFD700;
-            }
+        # Title
+        title = QLabel("⚡ AVENGERS PORTAL ⚡", self)
+        title.move(500, 30)
+        title.setFont(QFont("Impact", 26))
 
-            QCheckBox, QRadioButton {
-                color: white;
-            }
+        # Image
+        image = QLabel(self)
+        image.setPixmap(QPixmap(
+            r"C:\Users\OMOLP247\OneDrive\Desktop\dhruv\Python\PythonSyntax3\avengers.jpg"
+        ).scaled(800, 400))
+        image.move(50, 100)
 
-            QLineEdit {
-                background-color: white;
-                color: black;
-            }
+        # Checkboxes
+        label = QLabel("Choose Your Avengers:", self)
+        label.move(900, 100)
 
-            QPushButton {
-                background-color: #E62429;
-                color: white;
-                padding: 10px;
-                border-radius: 5px;
-            }
-        """)
+        heroes = ["Iron Man", "Captain America", "Spider-Man", "Hulk"]
 
-        # TITLE
-        self.title = QLabel("⚡ AVENGERS PORTAL ⚡", self)
-        self.title.move(650, 30)
+        for i, hero in enumerate(heroes):
+            check = QCheckBox(hero, self)
+            check.move(900, 140 + i * 40)
 
-        self.title_font = QFont("Impact", 26)
-        self.title.setFont(self.title_font)
+        # Radio Buttons
+        mission = QLabel("Choose Your Mission:", self)
+        mission.move(900, 330)
 
+        missions = ["Save the City", "Fight Villains", "Save the World"]
 
-        # IMAGE
-        self.image = QLabel(self)
+        for i, text in enumerate(missions):
+            radio = QRadioButton(text, self)
+            radio.move(900, 370 + i * 40)
 
-        self.pixmap = QPixmap(
-            r"C:\Users\OMOLP247\OneDrive\Desktop\dhruv\PythonSyntax3\avengers.jpg"
-        )
+        # Name
+        name_label = QLabel("Avenger Name:", self)
+        name_label.move(50, 550)
 
-        self.pixmap = self.pixmap.scaled(1200, 650)
+        name = QLineEdit(self)
+        name.move(200, 550)
 
-        self.image.setPixmap(self.pixmap)
-        self.image.move(50, 100)
+        # Button
+        button = QPushButton("START MISSION", self)
+        button.move(900, 520)
+        button.setFont(QFont("Impact", 16))
 
-
-        # CHECKBOX
-        self.avenger_label = QLabel("Choose Your Avengers:", self)
-        self.avenger_label.move(1300, 100)
-        self.avenger_label.setFont(QFont("Trebuchet MS", 15))
-
-        self.ironman = QCheckBox("Iron Man", self)
-        self.ironman.move(1300, 140)
-        self.ironman.setFont(QFont("Trebuchet MS", 13))
-
-        self.cap = QCheckBox("Captain America", self)
-        self.cap.move(1300, 180)
-        self.cap.setFont(QFont("Trebuchet MS", 13))
-
-        self.spidy = QCheckBox("Spider-Man", self)
-        self.spidy.move(1300, 220)
-        self.spidy.setFont(QFont("Trebuchet MS", 13))
-
-        self.hulk = QCheckBox("Hulk", self)
-        self.hulk.move(1300, 260)
-        self.hulk.setFont(QFont("Trebuchet MS", 13))
-
-
-        # RADIO BUTTONS
-        self.mission_label = QLabel("Choose Your Mission:", self)
-        self.mission_label.move(1300, 330)
-        self.mission_label.setFont(QFont("Trebuchet MS", 15))
-
-        self.mission1 = QRadioButton("Save the City", self)
-        self.mission1.move(1300, 370)
-        self.mission1.setFont(QFont("Trebuchet MS", 13))
-
-        self.mission2 = QRadioButton("Fight Villains", self)
-        self.mission2.move(1300, 410)
-        self.mission2.setFont(QFont("Trebuchet MS", 13))
-
-        self.mission3 = QRadioButton("Save the World", self)
-        self.mission3.move(1300, 450)
-        self.mission3.setFont(QFont("Trebuchet MS", 13))
-
-
-        # NAME
-        self.name_label = QLabel("Avenger Name:", self)
-        self.name_label.move(50, 800)
-        self.name_label.setFont(QFont("Trebuchet MS", 15))
-
-        self.name = QLineEdit(self)
-        self.name.move(225, 800)
-        self.name.setFont(QFont("Trebuchet MS", 13))
-
-
-        # BUTTON
-        self.button = QPushButton("START MISSION", self)
-        self.button.move(1500, 520)
-        self.button.setFont(QFont("Impact", 16))
-
-
-# SHOW WINDOW
 
 app = QApplication(sys.argv)
-
-window = AvengersPortal()
-
+window = Avengers()
 window.showMaximized()
 
 sys.exit(app.exec_())

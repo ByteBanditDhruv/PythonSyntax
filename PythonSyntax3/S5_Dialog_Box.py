@@ -1,76 +1,40 @@
 import sys
-from PyQt5.QtWidgets import (
-    QApplication, QWidget, QPushButton, QMessageBox
-)
+from PyQt5.QtWidgets import *
 
-app = QApplication(sys.argv)    
+class Avengers(QWidget):
 
-# Window
-window = QWidget()
-window.setWindowTitle("Avengers Mission")
-window.setGeometry(650, 300, 500, 300)
-window.setStyleSheet("background-color: #FFF8DC;")
+    def __init__(self):
+        super().__init__()
 
-# Button
-button = QPushButton("Start Mission", window)
-button.setGeometry(40, 100, 200, 60)
+        self.setWindowTitle("Avengers Mission")
+        self.setGeometry(500, 300, 500, 300)
+        self.setStyleSheet("background: #FFF8DC;")
 
-# Button Style
-button.setStyleSheet("""
-    QPushButton {
-        background-color: #F4C430;
-        color: #4A3B0A;
-        font-size: 18px;
-        font-weight: bold;
-        border-radius: 10px;
-    }
-    QPushButton:hover {
-        background-color: #FFD966;
-    }
-""")
+        # Buttons
+        self.b1 = QPushButton("Start Mission", self)
+        self.b1.setGeometry(40, 100, 200, 60)
 
-button2 = QPushButton("Warning", window)
-button2.setGeometry(260, 100, 200, 60)
+        self.b2 = QPushButton("Warning", self)
+        self.b2.setGeometry(260, 100, 200, 60)
 
-# Button Style
-# button2.setStyleSheet("""
-#     QPushButton {
-#         background-color: #F4C430;
-#         color: #4A3B0A;
-#         font-size: 18px;
-#         font-weight: bold;
-#         border-radius: 10px;
-#     }
-#     QPushButton:hover {
-#         background-color: #FFD966;
-#     }
-# """)
+        # Button Color
+        self.b1.setStyleSheet("background: #F4C430;")
+        self.b2.setStyleSheet("background: #F4C430;")
 
-# Function
-def show_dialog():
-    QMessageBox.information(
-        window,
-        "Avengers Mission",
-        "⚡ Your mission is ready!\nThe Avengers are assembling!"
-    )   
+        # Connect Buttons
+        self.b1.clicked.connect(self.mission)
+        self.b2.clicked.connect(self.warning)
 
-def show_dialog2():
-    QMessageBox.warning(
-        window,
-        "Warning!",
-        "Thanos is approaching!"
-    )
+    # Functions
+    def mission(self):
+        QMessageBox.information(self, "Mission", "Avengers are assembling!")
 
-# Connect Button
-button.clicked.connect(show_dialog)
-button2.clicked.connect(show_dialog2)
+    def warning(self):
+        QMessageBox.warning(self, "Warning", "Thanos is approaching!")
 
-# Show Window
+
+app = QApplication(sys.argv)
+window = Avengers()
 window.show()
 
 sys.exit(app.exec_())
-
-# QMessageBox.information()  # Information
-# QMessageBox.warning()      # Warning
-# QMessageBox.critical()     # Error
-# QMessageBox.question()     # Ask a question
